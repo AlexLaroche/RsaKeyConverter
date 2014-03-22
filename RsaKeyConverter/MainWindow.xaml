@@ -1,0 +1,55 @@
+﻿<Window x:Class="RsaKeyConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="clr-namespace:RsaKeyConverter.ViewModel"
+        DataContext="{x:Static Member=c:MainVindowViewModel.Instance}"
+        Title="RSA Key Tool" Height="550" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition Height="50">
+            </RowDefinition>
+            <RowDefinition Height="50">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+            <Label Content="XML Format" FontWeight="Bold"></Label>
+            <Label Content="Public Key"></Label>
+            <TextBox Height="100" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Top" Text="{Binding XmlRsaPublic}" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+            <Label Content="Private/Public Key Pair"></Label>
+            <TextBox Height="200" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Top" Text="{Binding XmlRsaPrivate}" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+            <Label Content="PEM Format" FontWeight="Bold"></Label>
+            <Label Content="Public Key"></Label>
+            <TextBox Height="100" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Top" Text="{Binding PemRsaPublic}" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+            <Label Content="Private/Public Key Pair"></Label>
+            <TextBox Height="200" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Top" Text="{Binding PemRsaPrivate}" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+            <Label Content="DER Format" FontWeight="Bold"></Label>
+            <Label Content="Public Key"></Label>
+            <TextBox Height="100" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Top" Text="{Binding DerRsaPublic}" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+            <Label Content="Private/Public Key Pair"></Label>
+            <TextBox Height="200" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Top" Text="{Binding DerRsaPrivate}" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" Orientation="Horizontal">
+            <Button Content="Export XML" Height="23" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding ExportXml}" />
+            <Button Content="Export PEM" Height="23" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding ExportPem}" />
+            <Button Content="Export DER" Height="23" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding ExportDer}" />
+            <Button Content="Generate New Key" Height="23" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding GenerateNewKey}" />
+            <Button Content="Clear keys" Height="23" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding ClearKeys}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" Orientation="Horizontal">
+            <Button Content="Convert XML to PEM/DER" Height="23" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding ConvertFromXmlToPemDer}" />
+            <Button Content="Convert PEM to XML/DER" Height="23" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding ConvertFromPemToXmlDer}" />
+            <Button Content="Convert DER to XML/PEM" Height="23" Width="150" HorizontalAlignment="Left" Margin="5" Command="{Binding ConvertFromDerToXmlPem}" />
+        </StackPanel>
+    </Grid>
+</Window>
